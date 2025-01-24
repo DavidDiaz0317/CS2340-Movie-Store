@@ -2,8 +2,21 @@
 <html>
 <body>
 
-<h1>Test1 Test2</h1>
-<p>Welcome to my first Django project!</p>
+<h1>Movie List</h1>
+
+{% if movies %}
+        <ul>
+            {% for movie in movies %}
+                <li>
+                    <br>Title: {{ movie.Title }}
+                    <br>Year: {{ movie.Year }}
+                    <img src="{{ movie.Poster }}" alt="Poster for {{ movie.Title }}" style="max-width: 200px;">
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Movies Found</p>
+    {% endif %}
 
 </body>
 </html>
