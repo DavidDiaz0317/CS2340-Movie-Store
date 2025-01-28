@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate("C:\\Users\\david\\PycharmProjects\\CS2340-MovieStore\\MovieStore\\service_key.json")
+cred = credentials.Certificate(C:\Users\david\PycharmProjects\CS2340-MovieStore\MovieStore\list\service_key.json)
 firebase_admin.initialize_app(cred)
 
 
@@ -12,7 +12,7 @@ firebase_admin.initialize_app(cred)
 
 def index(request):
     db = firestore.client()
-    MOVIES_REF = db.collection('Movies')
+    MOVIES_REF = db.collection('Movies').limit(25)
     genres = ["Thriller", "Adventure", "Comedy", "Action", "Crime", "Drama", "Romance", "Sci-Fi", "War", "Animation", "History", "Family", "Biography", "Western", "Fantasy"]
     docs = MOVIES_REF.stream()
     movies = []

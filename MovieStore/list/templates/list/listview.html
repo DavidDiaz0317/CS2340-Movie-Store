@@ -4,6 +4,7 @@
 
 <html>
 <link rel="stylesheet" href="{% static 'style.css' %}">
+<script src="{% static 'myfirst.js' %}"></script>
 <body>
 
 <h1>Movie List</h1>
@@ -30,6 +31,13 @@
                 </div>
                 </div>
             {% endfor %}
+                    <button class="open">open button</button>
+                    <dialog class="modalContainer">
+                        <div class="modal">
+                            <h2>modal body</h2>
+                            <button class="close">close button</button>
+                        </div>
+                    </dialog>
 {% else %}
 <p>No Movies Found</p>
 {% endif %}
