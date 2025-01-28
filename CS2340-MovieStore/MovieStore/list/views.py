@@ -1,12 +1,14 @@
 # Create your views here.
 from django.shortcuts import render
+from django.conf import settings
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
 #Initialize Database
-cred = credentials.Certificate("C:\\Users\\david\\PycharmProjects\\CS2340-MovieStore\\MovieStore\\service_key.json")
+cred = credentials.Certificate(settings.SERVICE_KEY_PATH)
 firebase_admin.initialize_app(cred)
+
 
 def index(request):
 
