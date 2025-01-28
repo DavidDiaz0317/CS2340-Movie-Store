@@ -1,0 +1,33 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+.layout {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--size-4);
+    grid-auto-columns: 14%;
+    overflow-x: auto;
+    overflow-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+}
+.layout > * {
+    scroll-snap-align: start;
+}
+.movie_holder {
+    display: grid;
+    grid-template-rows: min-content;
+    padding: var(--size-3);
+    background: var(--surface-2);
+    border-radius: var(--radius-4);
+    box-shadow: var(--size-6);
+}
+.movie_holder > img {
+    inline-size: 100%;
+    aspect-ratio: 2/3;
+}
+.rows {
+    padding: var(--size-3);
+}
+.genre {
+    padding: var(--size-2);
+}
+
