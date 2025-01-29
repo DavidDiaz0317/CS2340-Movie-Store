@@ -18,6 +18,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # service_key from firebase
 SERVICE_KEY_PATH = os.path.join(BASE_DIR, 'list', 'service_key.json')
 
+# Email settings for the development (back-end)
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#customize email for password reset
+PASSWORD_RESET_EMAIL_TEMPLATE_NAME = 'accounts/password_reset_email.html'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -42,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'list',
+    'accounts',
 ]
 
 MIDDLEWARE = [
