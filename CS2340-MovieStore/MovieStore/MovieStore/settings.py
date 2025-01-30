@@ -18,12 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # service_key from firebase
 SERVICE_KEY_PATH = os.path.join(BASE_DIR, 'list', 'service_key.json')
 
-# Email settings for the development (back-end)
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-#customize email for password reset
-PASSWORD_RESET_EMAIL_TEMPLATE_NAME = 'accounts/password_reset_email.html'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -141,3 +135,14 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+#SMTP Configuration for password reset email
+#EMAIL_TEMPLATE_NAME = 'accounts/password_reset_email.html'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'femiprattavril@gmail.com'
+EMAIL_HOST_PASSWORD = 'osfw tlyh cfcq gdnn'
