@@ -1,8 +1,8 @@
+from django.contrib.auth.views import PasswordResetView
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login, authenticate, logout as auth_logout
 from .forms import CustomUserCreationForm, CustomErrorList
 from django.contrib.auth.decorators import login_required
-
 
 def signup(request):
     template_data = {}
