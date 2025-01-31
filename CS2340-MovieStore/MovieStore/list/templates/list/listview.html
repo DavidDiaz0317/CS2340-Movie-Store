@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 {% load static %}
-
-
 <html>
-<link rel="stylesheet" href="{% static 'style.css' %}">
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <script src="{% static 'pop.js' %}" defer></script>
+</head>
 <body>
 
 <h1>Movie List</h1>
 
 <!-- Ensure movies properly loads-->
 {% if movies %}
+    <div id="search-style">
+    <span class="search-symbol material-symbols-outlined">search</span>
+    <input id="search-field" type="text" placeholder="Search for a movie" name="temp">
+    <button id="search-button"></button>
+    </div>
             <!-- Iterate through movies & Print out Title, Year, Poster -->
-
-            {%for genre in genres %}
+                {%for genre in genres %}
                 <div class="rows">
                 <h2 class="genre">{{genre}}</h2>
                 <div class="layout">
@@ -20,16 +26,41 @@
 
                     {% if genre in movie.Genre %}
 
-                    <div class="movie_holder">
-                        <img src="{{ movie.Poster }}" alt="Poster for {{ movie.Title }}" style="max-width: 200px;">
-                        <br class="title">{{ movie.Title }}
-                        <br class="year">Year: {{ movie.Year }}
-                    </div>
+                    <button class="movie_holder open_button"
+                            data-title="{{ movie.Title }}"
+                            data-plot="{{ movie.Plot }}"
+                            data-director="{{ movie.Director }}"
+                            data-genre="{{ movie.Genre }}"
+                            data-poster="{{ movie.Poster }}"
+                            data-year="{{ movie.Year }}">
+                        <img src="{{ movie.Poster }}" alt="Poster for {{ movie.Title }}">
+                        <br>
+                        <span class="title">{{ movie.Title }}</span>
+                        <span class="year">Year: {{ movie.Year }}</span>
+                    </button>
                     {% endif %}
                 {% endfor %}
                 </div>
                 </div>
             {% endfor %}
+    <dialog class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title"> TITLE </h2>
+            <span id="modal-plot">PLOT</span>
+            <div class="modal-format">
+                <span id="modal-year">YEAR</span>
+                <br>
+                <span id="modal-director">DIRECTOR</span>
+                <br>
+                <span id="modal-genre">GENRE</span>
+            </div>
+            <button class="button close-button">X</button>
+            <img id="modal-image" src="" alt="IMAGE PLACEHOLDER">
+            <div class="add_to_cart">
+            <button id="cart-button">Add to cart (WIP)</button>
+            </div>
+        </div>
+    </dialog>
 {% else %}
 <p>No Movies Found</p>
 {% endif %}
