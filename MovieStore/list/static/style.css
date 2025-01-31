@@ -18,11 +18,31 @@
     padding: var(--size-3);
     background: var(--surface-2);
     border-radius: var(--radius-4);
-    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
 }
+@keyframes growMov {
+    0%{
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+    100%{
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+        padding: 0.8em;
+        background-color: rgba(10,10,10,0.2);
+    }
+}
+.movie_holder:hover {
+    animation: growMov 0.2s ease-in forwards;
+}
+
 .movie_holder > img {
     inline-size: 100%;
     aspect-ratio: 2/3;
+}
+.title {
+    font-weight: bold;
+}
+.year {
+    font-weight: bold;
 }
 .rows {
     padding: var(--size-3);
@@ -30,15 +50,141 @@
 .genre {
     padding: var(--size-2);
 }
-.modalContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rebeccapurple;
+.button {
+    background-color: yellowgreen;
+}
+dialog[open] {
+    animation: fadein 0.3s ease-in forwards;
+}
+@keyframes fadein{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
 }
 .modal {
-    background-color: brown;
+  width: 800px;
+    height: 700px;
+  border: none;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 5px 4px rgba(0, 0, 0, 0.1);
+}
+.modal-content {
+
+}
+#modal-title {
+
+    position: absolute;
+    left: 3.5rem;
+    align-self: center;
+    font-weight: bolder;
+    font-size: clamp(10px, xxx-large, xxx-large);
+    text-align: center;
+    white-space: nowrap;
+}
+#modal-year {
+    font-size: large;
+}
+#modal-plot {
+    position: absolute;
+    top: 9rem;
+    left: 25rem;
+    right: 4rem;
+    bottom: 10rem;
+    font-weight: lighter;
+    font-size: large;
+}
+#modal-genre {
+    font-weight: normal;
+    font-size: large;
+}
+#modal-director {
+    font-weight: normal;
+    font-size: large;
+}
+.modal-format {
+    position: absolute;
+    bottom: 8rem;
+    left: 25rem;
+    right: 4rem;
+}
+.modal-content > img {
+    display: flex;
+    position: absolute;
+    left: 4rem;
+    top: 7rem;
+    margin: 20px auto;
+    width: 300px;
+    height: auto;
+    aspect-ratio: 2/3;
+    vertical-align: center;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+.button {
+    all: unset;
+  border: 0;
+  cursor: pointer;
+  background: var(--gray-8);
+  color: var(--gray-2);
+  font-weight: 700;
+  padding: var(--size-2) var(--size-4);
+}
+
+.button:hover {
+  font-weight: bolder;
+    animation: grow 0.2s ease-in forwards;
+}
+@keyframes grow {
+    0%{
+    }
+    100%{
+        color: black;
+    }
+}
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-size: x-large;
+}
+#cart-button {
+    position: absolute;
+    bottom: 5rem;
+    align-self: center;
+    left: 60%;
+}
+#search-button{
+    display: none;
+}
+#search-style {
+    position: fixed;
+    top: 2rem;
+    right: 6rem;
+    display: flex;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    width: max-content;
+    border-radius: 30px;
+
+    align-items: center;
+    transition: background 0.25s;
+}
+#search-style:focus-within, #search-style:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+#search-field {
+    font-family: "Roboto Light", "system-ui";
+    font-size: larger;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    width: 300px;
 }
 
