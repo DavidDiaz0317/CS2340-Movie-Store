@@ -1,0 +1,69 @@
+{% extends  'base.html' %}
+{% block content %}
+    <div class="p-3 mt-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow p-3 mb-4 rounded">
+                        <div class="card-body">
+                            <h2>Login</h2>
+                            <hr />
+                            {% if template_data.error %}
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{ template_data.error }}</li>
+                                </ul>
+                            </div>
+                        {% endif %}
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input id="username" type="text" name="username" required autocomplete="complete"
+                                       class="form-control">
+                                <!-- Display errors for specific field -->
+                                {% if template_data.form.username.errors %}
+                                    <div class="alert alert-danger">
+                                        {% for error in template_data.form.username.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" type="password" name="password" required
+                                       autocomplete="current-password" class="form-control">
+                                <!-- Display errors for specific field -->
+                                {% if template_data.form.password.errors %}
+                                    <div class="alert alert-danger">
+                                        {% for error in template_data.form.password.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="text-center">
+                                <br>
+                                <button type="submit" class="btn bg-dark text-white">Login</button>
+                            </div>
+                            <div class="text-center">
+                                <a href="{% url 'accounts.password_reset' %}">
+                                    <p>Forgot your password?</p>
+                                </a>
+                            </div>
+                            <div class="text-center">
+                                <p>Don't have an account?
+                                <a href="{% url 'accounts.signup' %}">
+                                    Sign Up
+                                </a></p>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
