@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <header class="masthead bg-index text-dark test-center py-4">
+<img src="{% static "home/img/moviebg.png" %}" alt="not working">
+    style="background-image: url('{% static "home/img/moviebg.png" %}');
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;
+           height: 500px;">
     <div class="container d-flex align-items-center flex-column pt-2">
         <h2>GT Movie Store </h2>
         <p>Your Ticket to Unlimited Entertainment and World Class Movies!</p>
