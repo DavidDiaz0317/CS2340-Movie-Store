@@ -42,6 +42,9 @@ def login(request):
         if user is None:
             template_data['error'] = "The username or password you entered is incorrect."
             return render(request, 'accounts/login.html', {'template_data': template_data})
+        elif user.is_staff or user.is_superuser:
+            auth_login(request, user)
+            return redirect('admin_home')
         else:
             auth_login(request, user)
             return redirect('movies.index')

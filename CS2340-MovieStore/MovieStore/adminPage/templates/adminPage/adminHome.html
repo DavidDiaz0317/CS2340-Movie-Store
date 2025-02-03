@@ -1,0 +1,15 @@
+{% extends  'base.html' %}
+{% block content %}
+<div class="p-3 mt-4">
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="{% url 'admin_users' %}">Users</a> </li>
+            <li><a href="{% url 'admin_movies' %}">Movies</a></li>
+            <li><a href="{% url 'admin_reviews' %}">Reviews</a></li>
+            <li>Orders</li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}
