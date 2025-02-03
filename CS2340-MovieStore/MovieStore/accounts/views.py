@@ -15,6 +15,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             role = request.POST.get('role')
+            print(f"Role: {role}")
 
             if role == 'user':
                 user.is_active = True
