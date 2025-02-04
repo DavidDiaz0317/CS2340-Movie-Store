@@ -1,7 +1,5 @@
 # Create your views here.
 from django.shortcuts import render
-from django.conf import settings
-from django.shortcuts import render
 from .models import Movie
 
 #Initialize Database
