@@ -12,4 +12,4 @@ def movies(request):
 def users(request):
     return HttpResponse("Hello, world. You're at the user page.")
 def reviews(request):
-    return HttpResponse("Hello, world. You're at the reviews.")
+    return render(request, 'adminPage/movies.html', {'temp': "apple"})
