@@ -1,6 +1,27 @@
 body {
-    background-image: url("../../../../static/home/img/moviebg.png");
+    background-image: url("../../../home/static/img/moviebg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+#gold {
+    color : gold;
+}
+
+#footer {
+    position : fixed;
+    bottom : 0;
+    width : 100%;
+}
+
+#centered {
+    margin : 0 auto;
+    display : block;
+}
+
+#middle {
+    top : 0;
+    bottom : 0;
+    height : 100%;
 }

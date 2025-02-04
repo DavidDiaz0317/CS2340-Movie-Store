@@ -19,7 +19,7 @@
     <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home.index' %}">
-                <img src="{% static '' %}" alt="logo" height="40">
+                <img src="{% static 'logo.png' %}" alt="logo" height="40">
             </a>
             <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
@@ -49,44 +49,18 @@
     </nav>
     <!-- Header -->
 
-    <div>
+    <div id="middle">
         {% block content %}
         {% endblock content %}
     </div>
 
     <!-- Footer -->
-    <section class="p-3 ms-footer d-none d-md-block">
-        <div class="container">
-            <div class="row mt-3 test-white">
-                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-4">
-                    <b>MOVIES STORE</b>
-                    <hr />
-                    <p>
-                        **ADD TEXT**
-                    </p>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                    <b>LINKS</b>
-                    <hr />
-                    <p><a class="nav-link" href="{% url 'home.about' %}">
-                        About
-                    </a></p>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                    <b>CONTACT</b>
-                    <hr />
-                    <p><i class="fas fa-home me-2"></i> Atlanta, GA, USA</p>
-                    <p><i class="fas fa-envelope me-2"></i> info@moviesstore.com</p>
-                    <p><i class="fas fa-phone me-2"></i> +1 404 XXX XXXX</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <section>
-        <section class="p-3 ms-footer-bottom bg-dark">
+        <section class="p-3 ms-footer-bottom bg-dark" id="footer">
             <div class="container d-flex justify-content-between">
                 <div class="me-5 text-white">
-                    <span> DESIGNED BY Avril
+                    <span> DESIGNED BY Avril and Leah
                     </span>
                 </div>
                 <div class="text-white">
