@@ -1,18 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <header class="masthead bg-index text-dark test-center py-4">
     <div class="container d-flex align-items-center flex-column pt-2">
-        <h2>GT Movie Store </h2>
-        <p>Your Ticket to Unlimited Entertainment and World Class Movies!</p>
+        <h2 id="gold">GT Movie Store </h2>
+        <p style = "color:gold">Your Ticket to Unlimited Entertainment and World Class Movies!</p>
     </div>
 </header>
-<div class="p-3">
-    <div class="container">
-        <div class="row mt-3">
-            <div class="clo mx-auto test-center mb-3">
-                <h4>Welcome to the best movie store!!</h4>
+    <style>
+    body {
+        background-image: url('../../static/img/moviebg.png');
+        background-size: cover;
+        height : 100%;
+    }
+
+    html {
+        height : 100%;
+    }
+    </style>
+<body>
+    <div class="p-3">
+        <div class="container">
+            <div class="row mt-3">
+                <a href="{% url 'accounts.login' %}">
+                    <button id="centered">Login</button>
+                </a>
             </div>
         </div>
     </div>
-</div>
+
+</body>
+
 {% endblock content %}
