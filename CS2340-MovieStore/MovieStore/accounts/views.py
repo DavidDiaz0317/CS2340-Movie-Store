@@ -13,7 +13,20 @@ def signup(request):
     elif request.method == 'POST':
         form = CustomUserCreationForm(request.POST, error_class=CustomErrorList)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            role = request.POST.get('role')
+            print(f"Role: {role}")
+
+            if role == 'user':
+                user.is_active = True
+                user.is_superuser = False
+                user.is_staff = False
+            if role == 'admin':
+                user.is_active = True
+                user.is_staff = True
+                user.is_superuser = True
+            user.save()
+
             return redirect('accounts.login')
         else:
             template_data['form'] = form
@@ -30,6 +43,9 @@ def login(request):
         if user is None:
             template_data['error'] = "The username or password you entered is incorrect."
             return render(request, 'accounts/login.html', {'template_data': template_data})
+        elif user.is_staff or user.is_superuser:
+            auth_login(request, user)
+            return redirect('admin_home')
         else:
             auth_login(request, user)
             return redirect('movies.index')
