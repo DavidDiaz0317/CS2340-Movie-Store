@@ -54,7 +54,28 @@ def delete_user(request, user_id):
     return redirect('admin_users')
 
 def admin_movies(request):
-    return redirect(reverse('admin_home'))
+    user_type = request.GET.get('type', 'user')
 
-def admin_reviews(request, user_id):
-    return redirect(reverse('admin_home'))
+    if user_type == 'admin':
+        users = User.objects.filter(is_staff=True)
+    else:
+        users = User.objects.filter(is_staff=False)
+    return redirect(reverse('admin:index'))
+
+def admin_reviews(request):
+    user_type = request.GET.get('type', 'user')
+
+    if user_type == 'admin':
+        users = User.objects.filter(is_staff=True)
+    else:
+        users = User.objects.filter(is_staff=False)
+    return redirect(reverse('admin:index'))
+
+def admin_orders(request):
+    user_type = request.GET.get('type', 'user')
+
+    if user_type == 'admin':
+        users = User.objects.filter(is_staff=True)
+    else:
+        users = User.objects.filter(is_staff=False)
+    return redirect(reverse('admin:index'))
