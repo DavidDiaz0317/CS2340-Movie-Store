@@ -1,10 +1,3 @@
-body {
-    background-image: url("../../../home/static/img/moviebg.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 #gold {
     color : gold;
 }

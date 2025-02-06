@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             openModals.forEach(button => {
                 const title = button.getAttribute("data-title").toLowerCase();
-                if (title === search) {
-                    button.click(); // Trigger the same event that opens the modal
+                if (title.includes(search)) {
+                    button.click();
                     found = true;
                 }
             })

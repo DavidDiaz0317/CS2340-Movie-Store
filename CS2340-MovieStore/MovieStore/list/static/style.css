@@ -1,5 +1,6 @@
-@import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/normalize.min.css";
+@import url("https://unpkg.com/open-props");
+@import url("https://unpkg.com/open-props/normalize.min.css");
+
 .layout {
     display: grid;
     grid-auto-flow: column;
@@ -38,6 +39,10 @@
     inline-size: 100%;
     aspect-ratio: 2/3;
 }
+h1 {
+    font-weight: bolder;
+    font-size: clamp(20px, 5vw, 5rem);
+}
 .title {
     font-weight: bold;
 }
@@ -48,6 +53,8 @@
     padding: var(--size-3);
 }
 .genre {
+    font-weight: bolder;
+    font-size: clamp(10px, xxx-large, xxx-large);
     padding: var(--size-2);
 }
 .button {
@@ -164,8 +171,6 @@ dialog[open] {
 }
 #search-style {
     position: fixed;
-    top: 2rem;
-    right: 6rem;
     display: flex;
     padding: 5px;
     background: rgba(0, 0, 0, 0.2);
@@ -174,6 +179,8 @@ dialog[open] {
 
     align-items: center;
     transition: background 0.25s;
+    right: 10px;
+    top: 70px;
 }
 #search-style:focus-within, #search-style:hover {
     background: rgba(0, 0, 0, 0.35);

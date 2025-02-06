@@ -45,7 +45,7 @@ def login(request):
             return render(request, 'accounts/login.html', {'template_data': template_data})
         elif user.is_staff or user.is_superuser:
             auth_login(request, user)
-            return redirect('admin_home')
+            return redirect('admin:index')
         else:
             auth_login(request, user)
             return redirect('movies.index')
