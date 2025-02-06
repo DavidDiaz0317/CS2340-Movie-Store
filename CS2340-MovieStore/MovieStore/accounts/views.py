@@ -54,3 +54,9 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('home.index')
+
+def orders(request):
+    template_data = {}
+    template_data['title'] = 'Orders'
+    template_data['orders'] = request.user.order_set.all()
+    return render(request, 'accounts/orders.html', {'template_data': template_data})
