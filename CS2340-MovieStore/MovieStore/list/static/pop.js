@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
     const modal = document.querySelector('.modal');
 
     const closeModal = document.querySelector('.close-button');

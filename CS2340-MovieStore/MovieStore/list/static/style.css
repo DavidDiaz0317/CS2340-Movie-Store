@@ -1,6 +1,68 @@
 @import url("https://unpkg.com/open-props");
 @import url("https://unpkg.com/open-props/normalize.min.css");
 
+.navbar {
+    background-color: #343a40;
+    padding: 15px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    height: 30px;
+}
+
+.navbar .navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+.nav-bar .nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-bar .vr {
+    border-left: 1px solid white;
+    height: 20px;
+    margin: 0 15px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.footer .footer-left {
+    font-size: 14px;
+}
+
+.footer .footer-right {
+    font-size: 14px;
+}
+
 .layout {
     display: grid;
     grid-auto-flow: column;
