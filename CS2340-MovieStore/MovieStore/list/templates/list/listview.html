@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
-
-{% block head %}
-    <!-- overriding the head from base.html because of a bootstrap link that makes the features on this page not work -->
+<head>
+    <!-- Header -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
     <script src="{% static 'pop.js' %}" defer></script>
@@ -35,25 +35,21 @@
                     <a class="nav-link" href="{% url 'home.about' %}">About</a>
                 {% endif %}
                 {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'accounts.orders' %}">Orders</a>
+                    <div class="vr bg-dark mx-2 d-none d-lg-block" style="margin: 0 10px;"></div>
                     <a class="nav-link" href="{% url 'accounts.logout' %}">Logout ({{ user.username }})</a>
                 {% endif %}
             </div>
         </div>
     </nav>
-    <!-- Head -->
-{% endblock %}
+    <!-- Header -->
+</head>
 
-<!--overriding the header from base.html because of a bootstrap link that makes the features on this page not work-->
-{% block header %}
-{% endblock %}
-<!-- Head: don't remove (it will cause an error unfortunately) -->
-
-
-{% block content %}
+<body>
 <h1>Movie List</h1>
 
 <!-- Ensure movies properly loads-->
-{% if movies %}
+    {% if movies %}
     <div id="search-style">
         <span class="search-symbol material-symbols-outlined">search</span>
         <input id="search-field" type="text" placeholder="Search for a movie" name="temp">
@@ -106,10 +102,8 @@
     {% else %}
         <p>No Movies Found</p>
     {% endif %}
-{% endblock %}
-
-{% block footer %}
-    <!-- Overriding the Footer from base.html-->
+</body>
+<footer>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-left">
@@ -120,11 +114,5 @@
             </div>
         </div>
     </footer>
-    <!-- Footer -->
-{% endblock %}
-
-{% block extra_scripts %}
-    <script src="{% static 'pop.js' %}"></script>
-{% endblock %}
-
-
+</footer>
+</html>
