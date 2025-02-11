@@ -5,6 +5,9 @@ from django.db import models
 # Create your models here.
 
 class Movie(models.Model):
+
+    id = models.AutoField(primary_key=True)
+
     Title = models.CharField(max_length=200)
 
     Plot = models.CharField(max_length=400)
@@ -16,6 +19,8 @@ class Movie(models.Model):
     Poster = models.CharField(max_length=200)
 
     Year = models.CharField(max_length=4)
+
+    Price = models.IntegerField(default=10)
 
     def __str__(self):
         return self.Title

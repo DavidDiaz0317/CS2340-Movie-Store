@@ -5,7 +5,7 @@
 <head>
     <!-- Header -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
     <script src="{% static 'pop.js' %}" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -37,6 +37,10 @@
                     <a class="nav-link" href="{% url 'home.about' %}">About</a>
                 {% endif %}
                 {% if user.is_authenticated %}
+                    <a class="cart-link" href="{% url 'cart.index' %}">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="cart-text">Cart</span>
+                    </a>
                     <a class="nav-link" href="{% url 'accounts.orders' %}">Orders</a>
                     <div class="vr bg-dark mx-2 d-none d-lg-block" style="margin: 0 10px;"></div>
                     <a class="nav-link" href="{% url 'accounts.logout' %}">Logout ({{ user.username }})</a>
@@ -64,6 +68,8 @@
                     {% if genre in movie.Genre %}
 
                     <button class="movie_holder open_button"
+                            data-url="{% url 'cart.add' id=movie.id %}"
+                            data-id="{{ movie.id }}"
                             data-title="{{ movie.Title }}"
                             data-plot="{{ movie.Plot }}"
                             data-director="{{ movie.Director }}"
@@ -85,6 +91,7 @@
             <h2 id="modal-title"> TITLE </h2>
             <span id="modal-plot">PLOT</span>
             <button class="button close-button">X</button>
+
             <img id="modal-image" src="" alt="IMAGE PLACEHOLDER">
 
             <div class="modal-format">
@@ -94,9 +101,32 @@
                 <br>
                 <span id="modal-genre">GENRE</span>
             </div>
-            <div class="add_to_cart">
-            <button id="cart-button">Add to cart (WIP)</button>
-            </div>
+<p class="card-text">
+  <form method="post" action="" id="add-to-cart-form">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-auto">
+        <div class="input-group col-auto">
+          <div class="input-group-text">Quantity</div>
+          <input
+            type="number"
+            min="1"
+            max="10"
+            class="form-control quantity-input"
+            name="quantity"
+            value="1"
+          >
+
+        </div>
+      </div>
+      <div class="col-auto">
+        <button class="btn bg-dark text-white" type="submit">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </form>
+</p>
         </div>
     </dialog>
     {% else %}
