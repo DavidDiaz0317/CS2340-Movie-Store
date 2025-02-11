@@ -41,13 +41,4 @@ class Review(models.Model):
     def __str__(self):
         return self.user
 
-class Order(models.Model):
-    User = models.CharField(max_length=200)
-    MovieList = models.TextField()
-    def set_movielist(self, movies):
-        self.MovieList = json.dumps(movies)
-    def get_movielist(self):
-        return json.loads(self.MovieList) if self.MovieList else []
-    def __str__(self):
-        return self.MovieList if self.MovieList else ''
 
