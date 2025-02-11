@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
     {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@
     <!-- Header -->
     <nav class="p-2 navbar navbar-dark bg-dark navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home.index' %}">
+            <a class="navbar-brand">
                 <img src="{% static 'logo.png' %}" alt="logo" height="30">  <!-- Smaller logo -->
             </a>
             <button class="navbar-toggler" type="button"
@@ -54,6 +54,8 @@
                     {% endif %}
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     {% if user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'movies.index' %}">Movies</a>
+                        <a class="nav-link" href="{% url 'cart.index' %}">Cart</a>
                         <a class="nav-link" href="{% url 'accounts.orders' %}">Orders</a>
                         <a class="nav-link" href="{% url 'accounts.logout' %}">Logout ({{ user.username }})</a>
                     {% else %}
@@ -78,10 +80,6 @@
     <section>
         <section class="p-2 ms-footer-bottom bg-dark" id="footer">
             <div class="container d-flex justify-content-between">
-                <div class="me-5 text-white">
-                    <span> DESIGNED BY Avril and Leah
-                    </span>
-                </div>
                 <div class="text-white">
                     <span> Copyright - 2025</span>
                 </div>

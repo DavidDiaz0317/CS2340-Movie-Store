@@ -3,8 +3,8 @@ from . import views
 
 urlpatterns = [
 
-path('', views.index, name='cart.index'),
-path('add/<int:id>/', views.add, name='cart.add'),
-
-path('clear/', views.clear, name='cart.clear'),
+    path('', views.index, name='cart.index'),
+    path('add/<int:id>/', views.add, name='cart.add'),
+    path('clear/', views.clear, name='cart.clear'),
+    path('purchase/', views.purchase, name='cart.purchase'),
 ]
