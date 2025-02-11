@@ -1,7 +1,7 @@
 # Create your views here.
 from django.shortcuts import render, redirect
 from .models import Movie, Review
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 #Initialize Database
@@ -21,6 +21,6 @@ def create_review(request, id):
         review.movie = movie
         review.user = request.user
         review.save()
-        return redirect('movies.show', id=id)
+        return redirect('movies.index', id=id)
     else:
-        return redirect('movies.show', id=id)
+        return redirect('movies.index', id=id)
