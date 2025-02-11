@@ -1,6 +1,6 @@
 # Create your views here.
 from django.shortcuts import render
-from .models import Movie
+from .models import Movie, Review
 from django.shortcuts import get_object_or_404, redirect
 
 #Initialize Database
