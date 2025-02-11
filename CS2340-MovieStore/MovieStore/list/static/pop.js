@@ -14,14 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("search-field");
     const searchButton = document.getElementById("search-button");
 
-    // NEW: reference the form
     const addToCartForm = document.getElementById("add-to-cart-form");
 
     if (openModals && closeModal && modal) {
 
         openModals.forEach(button => {
             button.addEventListener("click", function () {
-                // Extract movie info from data attributes
                 const movieTitle = this.getAttribute("data-title");
                 const moviePlot = this.getAttribute("data-plot");
                 const movieDirector = this.getAttribute("data-director");
@@ -29,15 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 const moviePosterUrl = this.getAttribute("data-poster");
                 const movieYear = this.getAttribute("data-year");
 
-                // 1) Get the cart URL from data-url
                 const cartUrl = this.getAttribute("data-url");
                 console.log(cartUrl);
 
-                // 2) Set the form's action to that URL
                 addToCartForm.action = cartUrl;
 
-                // Populate modal content
-                modalTitle.textContent = cartUrl;
+                modalTitle.textContent = movieTitle;
                 modalPlot.textContent = `Plot: ${moviePlot}`;
                 modalDirector.textContent = `Director: ${movieDirector}`;
                 modalGenre.textContent = `Genre: ${movieGenre}`;
@@ -45,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 modalImage.alt = `Poster for ${movieTitle}`;
                 modalYear.textContent = `Year : ${movieYear}`;
 
-                // Show the dialog
                 modal.showModal();
                 modalImage.focus();
             });
