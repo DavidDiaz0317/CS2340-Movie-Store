@@ -11,11 +11,11 @@
     <style>
         /* Global navbar styling */
         nav {
-            padding: 0.5rem 1rem;
+            padding: 0.1rem 0.5rem;
         }
 
         .navbar-brand img {
-            height: 30px;
+            height: 25px;
         }
 
         .navbar-nav .nav-link {
@@ -26,26 +26,28 @@
             font-size: 14px;
         }
     </style>
+</head>
 
-    <nav class="navbar">
+<body>
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <a class="navbar-brand">
+            <button class="navbar-toggler" onclick="toggleNavbar()">
+                &#9776;
+            </button>
+            <a class="navbar-brand logo">
                 <img src="{% static 'logo.png' %}" alt="logo" class="logo">
             </a>
-            <div class="navbar-links">
+            <div class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
-                    <a class="cart-link" href="{% url 'cart.index' %}">
-                        <span class="material-symbols-outlined">shopping_cart</span>
-                    </a>
-                    <a class="nav-link" href="{% url 'accounts.orders' %}">Orders</a>
-                    <a class="nav-link" href="{% url 'accounts.logout' %}">Logout ({{ user.username }})</a>
+                <a class="nav-link" href="{% url 'cart.index' %}">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </a>
+                <a class="nav-link" href="{% url 'accounts.orders' %}">Orders</a>
+                <a class="nav-link" href="{% url 'accounts.logout' %}">Logout ({{ user.username }})</a>
                 {% endif %}
             </div>
         </div>
     </nav>
-</head>
-
-<body>
 <h1>GT Movie Store</h1>
 
     {% if movies %}
@@ -158,6 +160,14 @@
     {% else %}
         <p>No Movies Found</p>
     {% endif %}
+
+<!-- JS for the navbar functionality -->
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById("navbar")
+        navbar.classList.toggle("responsive")
+    }
+</script>
 </body>
 <footer>
     <footer class="footer">

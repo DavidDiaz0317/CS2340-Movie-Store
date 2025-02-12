@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
     <header class="masthead bg-index text-dark test-center py-4">
         <div class="container d-flex align-items-center flex-column pt-2">
             <h2>
@@ -8,10 +9,10 @@
         </div>
     </header>
 
-    <section class="p-3 ms-footer d-none d-md-block">
+    <section class="p-3 ms-footer">
         <div class="container">
             <div class="row mt-3 test-white">
-                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-4">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-6 mb-4">
                     <b>ABOUT</b>
                     <hr />
                     <p>
@@ -24,7 +25,7 @@
                         passionate about bringing affordable movies to all!
                     </p>
                 </div>
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+                <div class="col-12 col-md-6 col-lg-3 col-xl-3 mb-4">
                     <b>CONTACT</b>
                     <hr />
                     <p><i class="fas fa-home me-2"></i> Atlanta, GA, USA</p>

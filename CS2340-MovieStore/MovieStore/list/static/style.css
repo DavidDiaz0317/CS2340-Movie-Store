@@ -3,40 +3,87 @@
 @import url("https://unpkg.com/open-props/themes.min.css");
 @import url("https://unpkg.com/open-props/theme.dark.switch.min.css");
 
+/* Navbar Styling */
 .navbar {
-    background-color: #343a40;
-    padding: 15px;
+    background-color: #2b2b2b;
+    position: relative;
+    padding: 10px 20px
 }
-
-.container {
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
-
-.navbar .logo {
-    height: 30px;
-}
-
-.navbar .navbar-links {
-    display: flex;
-    align-items: center;
-}
-
-.navbar .nav-link {
-    color: white;
+.navbar a {
+    color: #fff;
+    padding: 10px 16px;
     text-decoration: none;
-    margin-left: 30px;
-    font-size: 16px;
+    display: inline-block;
+}
+.navbar a:hover {
+    background-color: #2b2b2b;
+    color: #fff;
+}
+.navbar-toggler {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+}
+.navbar-brand {
+    display: block;
+    text-align: left;
+    margin-right: auto;
+
+}
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
 }
 
-.navbar .nav-link:hover {
-    text-decoration: underline;
-}
-.navbar .vr {
-    border-left: 1px solid white;
-    height: 20px;
-    margin: 0 15px;
+/* Mobile view */
+@media screen and (max-width: 768px) {
+    .navbar-nav a {
+        display: none;
+        width: 100%;
+        text-align: left;
+    }
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar.responsive .navbar-nav a {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar.responsive .navbar-nav {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #2b2b2b;
+        padding: 10px 0px;
+    }
+    .navbar.responsive .navbar-brand {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        display: block;
+    }
+    .navbar.responsive .navbar-nav {
+        align-items: flex-start
+    }
 }
 
 .footer {
