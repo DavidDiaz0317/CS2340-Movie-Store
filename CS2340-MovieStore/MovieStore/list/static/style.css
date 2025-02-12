@@ -220,6 +220,7 @@ dialog[open] {
 #modal-year,
 #modal-plot,
 #modal-genre,
+#modal-price,
 #modal-director {
     font-size: large;
     margin: 0 auto;
