@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 modalImage.alt = `Poster for ${movieTitle}`;
                 modalYear.textContent = `Year : ${movieYear}`;
 
+                const movieId = this.getAttribute("data-id");
+                const reviewLink = document.getElementById("review-link");
+                reviewLink.href = `${movieId}/`;
+
                 modal.showModal();
                 modalImage.focus();
             });

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="p-3">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-6 mx-auto mb-3">
+                <h2>{{ template_data.movie.Title }}</h2>
+                <hr />
+                <!-- check if the user has made a review -->
+                {% if user.is_authenticated %}
+                        {% if template_data.user_review %}
+                                <h3>Your Review</h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item pb-3 pt-3">
+                                        <h5 class="card-title">
+                                            Review by {{ template_data.user_review.user.username }}
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2">
+                                            {{ template_data.user_review.date }}
+                                        </h6>
+                                        <p class="card-text">{{ template_data.user_review.comment }}</p>
+                                        <a href="{% url 'movies.edit_review' id=template_data.movie.id review_id=template_data.user_review.id %}"
+                                           class="btn btn-outline-dark btn-sm">Edit Your Review</a>
+                                        <a href="{% url 'movies.delete_review' id=template_data.movie.id review_id=template_data.user_review.id %}"
+                                           class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete your review?');">Delete</a>
+                                    </li>
+                                </ul>
+                        {% else %}
+                            <h4>Leave a Review</h4>
+                                <form method="POST" action="{% url 'movies.create_review' id=template_data.movie.id %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <textarea name="comment" class="form-control" rows="5"
+                                              placeholder="Write your review here." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark text-white mt-2">Submit Review</button>
+                                </form>
+                        {% endif %}
+                {% else %}
+                <div class="container">
+                    <div class="col-md-6 mx-auto mb-3">
+                        <p>You must be logged in to write a review.</p>
+                    </div>
+                </div>
+                {% endif %}
+                    <br><h3>Reviews by other Users</h3>
+                    {% if template_data.reviews %}
+                        <ul class="list-group">
+                            {% for review in template_data.reviews %}
+                                {% if user != review.user %}
+                                    <li class="list-group-item pb-3 pt-3">
+                                        <h5 class="card-title">
+                                            Review by {{ review.user.username }}
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">
+                                            {{ review.date }}
+                                        </h6>
+                                        <p class="card-text">{{ review.comment }}</p>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No reviews yet. Be the first to add a review!</p>
+                    {% endif %}
+            </div>
+            <div class="col-md-6 mx-auto mb-3 text-center">
+                <img src="{{ template_data.movie.Poster }}" class="rounded img-card-400"/>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
