@@ -2,9 +2,8 @@
 {% load static %}
 {% block content %}
 <header class="masthead bg-index text-dark test-center py-4">
-    <div class="container d-flex align-items-center flex-column pt-2">
+    <div class="container d-flex align-items-center flex-column pt-2" style="position:fixed;top:0;margin:0 auto;width:50%">
         <h2 id="gold">GT Movie Store </h2>
-        <p style = "color:gold">Your Ticket to Unlimited Entertainment and World Class Movies!</p>
     </div>
 </header>
     <style>
@@ -12,7 +11,7 @@
         background-image: url("{% static 'img/moviebg.png' %}");
         background-size: cover;
         height : 100%;
-    }
+    }s
 
     html {
         height : 100%;
@@ -23,7 +22,7 @@
         <div class="container">
             <div class="row mt-3">
                 <a href="{% url 'accounts.login' %}">
-                    <button id="centered">Login</button>
+                    <button id="centered" style="position:relative;top:300px;width:100px;height:50px">Login</button>
                 </a>
             </div>
         </div>
